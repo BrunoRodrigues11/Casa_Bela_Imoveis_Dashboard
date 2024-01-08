@@ -13,16 +13,16 @@
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-1">
-                        <h3 class="mb-0">Cadastro de Categoria</h3>
+                        <h3 class="mb-0">Cadastro de Pagamento</h3>
                     </div>
                     <form action="">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="nome">Nome</label>
+                                        <label for="tipo">Tipo</label>
                                         <input type="text" class="form-control form-control-alternative"
-                                            placeholder="Informe o nome da categoria" name="nome" id="nome" required=""
+                                            placeholder="Informe o tipo de pagamento" name="tipo" id="tipo" required=""
                                             autofocus="" autocomplete="off" />
                                     </div>
                                 </div>
