@@ -1,6 +1,6 @@
 <?php
 include("../menu.php");
-include("../assets.php");
+include("../connection/connection.php");
 
 $categoria = $_GET['nome'];
 ?>
@@ -19,17 +19,35 @@ $categoria = $_GET['nome'];
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-1">
-                        <h3 class="mb-0">Cadastro realizado com sucesso</h3>
+                        <h3 class="mb-0">Status Cadastro de Categoria</h3>
                     </div>
                     <div class="container" style="margin-top:10px">
-                        teste
+                        <?php
+                        $sql = "INSERT INTO categoria (nome) VALUES ('$categoria')";
+                        $query = mysqli_query($conn, $sql);
+                        if ($sql) {
+                            ?>
+                            <center>
+                                <div id='aprovado' style="width: 200px; height: 200px"></div>
+                                <h4>Aprovado</h4>
+                            </center>
+                            <?php
+                        } else {
+                            ?>
+                            <center>
+                                <div id='erro' style="width: 200px; height: 200px"></div>
+                                <h4>Reprovado</h4>
+                            </center>
+                            <?php
+                        }
+                        ?>
                     </div>
                     <div class="card-footer py-4">
-                        <div style="text-align: right">
-                            <button href="#" class="btn btn-icon btn-success" type="submit">
+                        <div style="text-align: center">
+                            <a href="../cad_form_categoria.php" class="btn btn-icon btn-success" role="button">
                                 <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
-                                <span class="btn-inner--text">Cadastrar</span>
-                            </button>
+                                <span class="btn-inner--text">Voltar</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -67,6 +85,33 @@ $categoria = $_GET['nome'];
         </footer>
     </div>
     <?php include("../rodape.php"); ?>
+
+    <script src="animacoes/bodymovin.js"></script>
+    <script type="text/javascript">
+        var svgContainer = document.getElementById('erro');
+        var animItem = bodymovin.loadAnimation({
+            wrapper: svgContainer,
+            animType: 'svg',
+            loop: true,
+            autoplay: true,
+
+            path: 'animacoes/error.json'
+        });
+
+    </script>
+
+
+    <script type="text/javascript">
+        var svgContainer = document.getElementById('aprovado');
+        var animItem = bodymovin.loadAnimation({
+            wrapper: svgContainer,
+            animType: 'svg',
+            loop: true,
+            autoplay: true,
+
+            path: 'animacoes/aprovado.json'
+        });
+    </script>
 </body>
 
 </html>
