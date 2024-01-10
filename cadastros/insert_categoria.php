@@ -45,7 +45,7 @@ $categoria = $_GET['nome'];
                     <div class="card-footer py-4">
                         <div style="text-align: center">
                             <a href="../cad_form_categoria.php" class="btn btn-icon btn-success" role="button">
-                                <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
+                                <span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
                                 <span class="btn-inner--text">Voltar</span>
                             </a>
                         </div>
@@ -99,8 +99,6 @@ $categoria = $_GET['nome'];
         });
 
     </script>
-
-
     <script type="text/javascript">
         var svgContainer = document.getElementById('aprovado');
         var animItem = bodymovin.loadAnimation({

@@ -30,7 +30,7 @@
                         </div>
                         <div class="card-footer py-4">
                             <div style="text-align: right">
-                                <button href="#" class="btn btn-icon btn-success" type="submit">
+                                <button class="btn btn-icon btn-success" type="submit">
                                     <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
                                     <span class="btn-inner--text">Cadastrar</span>
                                 </button>
