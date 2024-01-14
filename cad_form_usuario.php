@@ -29,7 +29,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="nivel_acesso">Nível de Acesso</label>
-                                        <select class="form-control form-control-alternative">
+                                        <select class="form-control form-control-alternative" name="nivel_acesso"
+                                            id="nivel_acesso" required="" autocomplete="off">
                                             <option>Gerente</option>
                                             <option>Vendedor</option>
                                             <option>Administrador</option>
