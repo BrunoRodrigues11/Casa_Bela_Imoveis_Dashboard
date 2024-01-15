@@ -8,6 +8,7 @@ $cpf = $_GET['cpf'];
 $email = $_GET['email'];
 $endereco = $_GET['endereco'];
 $numero = $_GET['numero'];
+$complemento = $_GET['complemento'];
 $bairro = $_GET['bairro'];
 $cidade = $_GET['cidade'];
 $uf = $_GET['uf'];
@@ -34,10 +35,11 @@ $interesse = $_GET['interesse'];
                     </div>
                     <div class="container" style="margin-top:10px">
                         <?php
-                        $sql = "INSERT INTO cliente (nome,sobrenome,cpf,email,endereco,numero,bairro,cidade,uf,cep,interesse) 
-                                VALUES ('$nome','$sobrenome','$cpf','$email','$endereco','$numero','$bairro','$cidade','$uf','$cep','$interesse')";
+                        $sql = "INSERT INTO cliente (nome,sobrenome,cpf,email,endereco,numero,complemento,bairro,cidade,uf,cep,interesse) 
+                                VALUES ('$nome','$sobrenome','$cpf','$email','$endereco','$numero','$complemento','$bairro','$cidade','$uf','$cep','$interesse')";
                         $query = mysqli_query($conn, $sql);
-                        if ($sql == true) {
+                        $teste = mysqli_affected_rows($conn);
+                        if ($teste == 1) {
                             ?>
                             <center>
                                 <div id='aprovado' style="width: 200px; height: 200px"></div>

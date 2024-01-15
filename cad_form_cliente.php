@@ -82,12 +82,22 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label for="complemento">Complemento</label>
+                                        <input type="text" class="form-control form-control-alternative"
+                                            placeholder="Informe o complemento" name="complemento" id="complemento"
+                                            required="" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label for="cidade">Cidade</label>
                                         <input type="text" class="form-control form-control-alternative"
                                             placeholder="Informe a cidade" name="cidade" id="cidade" required=""
                                             autocomplete="off" />
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="uf">UF</label>
@@ -132,8 +142,6 @@
                                             autocomplete="off" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="interesse">Interesse</label>

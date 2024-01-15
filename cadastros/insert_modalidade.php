@@ -25,7 +25,8 @@ $modalidade = $_GET['tipo'];
                         <?php
                         $sql = "INSERT INTO modalidade (tipo) VALUES ('$modalidade')";
                         $query = mysqli_query($conn, $sql);
-                        if ($sql) {
+                        $teste = mysqli_affected_rows($conn);
+                        if ($teste == 1) {
                             ?>
                             <center>
                                 <div id='aprovado' style="width: 200px; height: 200px"></div>

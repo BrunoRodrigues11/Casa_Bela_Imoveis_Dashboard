@@ -25,7 +25,8 @@ $categoria = $_GET['nome'];
                         <?php
                         $sql = "INSERT INTO categoria (nome) VALUES ('$categoria')";
                         $query = mysqli_query($conn, $sql);
-                        if ($sql) {
+                        $teste = mysqli_affected_rows($conn);
+                        if ($teste == 1) {
                             ?>
                             <center>
                                 <div id='aprovado' style="width: 200px; height: 200px"></div>

@@ -25,7 +25,8 @@ $pagamento = $_GET['tipo'];
                         <?php
                         $sql = "INSERT INTO pagamento (tipo) VALUES ('$pagamento')";
                         $query = mysqli_query($conn, $sql);
-                        if ($sql == true) {
+                        $teste = mysqli_affected_rows($conn);
+                        if ($teste == 1) {
                             ?>
                             <center>
                                 <div id='aprovado' style="width: 200px; height: 200px"></div>
