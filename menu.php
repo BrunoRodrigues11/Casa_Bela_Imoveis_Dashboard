@@ -1,3 +1,13 @@
+<?php
+include("connection/connection.php");
+
+// Indicador de quantidade total de imóveis cadastrados
+$sqlQtdeImovel = "SELECT COUNT(id) as qtde FROM imovel";
+$queryQtdeImovel = mysqli_query($conn, $sqlQtdeImovel);
+$dadosQtdeImovel = mysqli_fetch_array($queryQtdeImovel);
+$qtdeImovel = $dadosQtdeImovel['qtde'];
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -251,18 +261,20 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
-                                            <span class="h2 font-weight-bold mb-0">350,897</span>
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Qtde Imóveis</h5>
+                                            <span class="h2 font-weight-bold mb-0">
+                                                <?php echo $qtdeImovel ?>
+                                            </span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                                <i class="fas fa-chart-bar"></i>
+                                                <i class="ni ni-building"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                        <span class="text-nowrap">Since last month</span>
+                                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 300%</span>
+                                        <span class="text-nowrap">Since yesterday</span>
                                     </p>
                                 </div>
                             </div>
