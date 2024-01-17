@@ -15,7 +15,7 @@
                     <div class="card-header border-1">
                         <h3 class="mb-0">Cadastro de Usuário</h3>
                     </div>
-                    <form action="">
+                    <form action="cadastros/insert_usuario.php" method="post">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6">
@@ -31,10 +31,10 @@
                                         <label for="nivel_acesso">Nível de Acesso</label>
                                         <select class="form-control form-control-alternative" name="nivel_acesso"
                                             id="nivel_acesso" required="" autocomplete="off">
-                                            <option>Gerente</option>
-                                            <option>Vendedor</option>
-                                            <option>Administrador</option>
-                                            <option>Recepcionista</option>
+                                            <option value="1">Gerente</option>
+                                            <option value="2">Vendedor</option>
+                                            <option value="3">Recepcionista</option>
+                                            <option value="4">Administrador</option>
                                         </select>
                                     </div>
                                 </div>

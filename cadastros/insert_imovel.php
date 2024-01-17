@@ -16,6 +16,7 @@ $modalidade = $_POST['modalidade'];
 $pagamento = $_POST['pagamento'];
 $categoria = $_POST['categoria'];
 $foto = $_FILES['foto'];
+$status = "Ativo";
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +37,8 @@ $foto = $_FILES['foto'];
                     </div>
                     <div class="container" style="margin-top:10px">
                         <?php
-                        $sqlImovel = "INSERT INTO imovel (codigo,valor,cpf_cliente,endereco,numero,complemento,bairro,cidade,uf,cep,id_modalidade,id_pagamento,id_categoria)
-                        VALUES ('$codigo','$valor','$cpf','$endereco','$numero','$complemento','$bairro','$cidade','$uf','$cep','$modalidade','$pagamento','$categoria')";
+                        $sqlImovel = "INSERT INTO imovel (codigo,valor,cpf_cliente,endereco,numero,complemento,bairro,cidade,uf,cep,id_modalidade,id_pagamento,id_categoria,status)
+                        VALUES ('$codigo','$valor','$cpf','$endereco','$numero','$complemento','$bairro','$cidade','$uf','$cep','$modalidade','$pagamento','$categoria','$status')";
                         $query = mysqli_query($conn, $sqlImovel);
                         $teste = mysqli_affected_rows($conn);
 
