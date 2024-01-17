@@ -1,6 +1,7 @@
 <?php
 include("../menu.php");
 include("../connection/connection.php");
+include("../script/password.php");
 
 $nome = $_POST['nome'];
 $nivel_acesso = $_POST['nivel_acesso'];
@@ -23,12 +24,12 @@ $email = $_POST['email'];
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-1">
-                        <h3 class="mb-0">Status Cadastro de Usuário</h3>
+                        <h3 class="mb-0">Status Cadastro do Usuário</h3>
                     </div>
                     <div class="container" style="margin-top:10px">
                         <?php
                         $sql = "INSERT INTO usuarios (nome,nivel_acesso,usuario,senha,email) 
-                                VALUES ('$nome','$nivel_acesso','$usuario','$senha','$email')";
+                                VALUES ('$nome','$nivel_acesso','$usuario',md5('$senha'),'$email')";
                         $query = mysqli_query($conn, $sql);
                         $teste = mysqli_affected_rows($conn);
                         if ($teste == 1) {
