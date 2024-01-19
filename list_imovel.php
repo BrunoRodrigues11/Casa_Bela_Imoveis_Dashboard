@@ -20,7 +20,19 @@ $query = mysqli_query($conn, $sql);
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-1">
-                        <h3 class="mb-0">Lista de Imóveis</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="mb-0">Lista de Imóveis</h3>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a href="cad_form_imovel.php" role="button" class="btn btn-success">
+                                    <span class="btn-inner--icon">
+                                        <i class="ni ni-fat-add"></i>
+                                    </span>
+                                    <span class="btn-inner--text">Novo Imóvel</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <div class="table-responsive">
                         <div>
@@ -53,29 +65,39 @@ $query = mysqli_query($conn, $sql);
                                                 <?php echo $codigo; ?>
                                             </td>
                                             <td>
-                                                <?php echo $valor; ?>
+                                                <?php echo number_format($valor, 2, ',', '.'); ?>
                                             </td>
                                             <td>
-                                                <?php echo $cep; ?>
+                                                <?php echo substr($cep, 0, 5) . '-' . substr($cep, 5); ?>
                                             </td>
                                             <td>
                                                 <?php echo $bairro; ?>
                                             </td>
                                             <td>
-                                                <span class="badge badge-dot mr-4">
-                                                    <i class="bg-success"></i>
-                                                    <span class="status">
-                                                        <?php echo $status ?>
-                                                    </span>
+                                                <span class="badge badge-pill badge-success">
+                                                    <?php echo $status; ?>
                                                 </span>
                                             </td>
                                             <td>
-                                                <a href="edit_imovel.php?id=<?php echo $id; ?>" role="button"
+                                                <a href="cad_form_moviment_imovel.php?id=<?php echo $id; ?>" role="button"
+                                                    class="btn btn-primary">
+                                                    <span class="btn-inner--icon">
+                                                        <i class="ni ni-paper-diploma"></i>
+                                                    </span>
+                                                    <span class="btn-inner--text"></span>
+                                                </a>
+                                                <a href="edit_form_imovel.php?id=<?php echo $id; ?>" role="button"
                                                     class="btn btn-warning">
                                                     <span class="btn-inner--icon">
                                                         <i class="ni ni-tag"></i>
                                                     </span>
-                                                    <span class="btn-inner--text">Editar</span>
+                                                    <span class="btn-inner--text"></span>
+                                                </a>
+                                                <a href="#" role="button" class="btn btn-danger">
+                                                    <span class="btn-inner--icon">
+                                                        <i class="ni ni-fat-remove"></i>
+                                                    </span>
+                                                    <span class="btn-inner--text"></span>
                                                 </a>
                                             </td>
                                         </tr>
