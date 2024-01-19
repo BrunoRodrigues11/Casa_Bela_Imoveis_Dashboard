@@ -74,7 +74,15 @@ $query = mysqli_query($conn, $sql);
                                                 <?php echo $bairro; ?>
                                             </td>
                                             <td>
-                                                <span class="badge badge-pill badge-success">
+                                                <span class="badge badge-pill <?php
+                                                if ($status == 'Ativo') {
+                                                    echo 'badge-success';
+                                                } elseif ($status == 'Aluguel ') {
+                                                    echo 'badge-primary';
+                                                } elseif ($status == 'Venda ') {
+                                                    echo 'badge-warning';
+                                                }
+                                                ?>">
                                                     <?php echo $status; ?>
                                                 </span>
                                             </td>
