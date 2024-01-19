@@ -26,6 +26,12 @@ $queryQtdeImovelAlugado = mysqli_query($conn, $sqlQtdeImovelAlugado);
 $dadosQtdeImovelAlugado = mysqli_fetch_array($queryQtdeImovelAlugado);
 $qtdeImovelAlugado = $dadosQtdeImovelAlugado['qtde'];
 
+// Indicador lucro dos alugueis
+$sqlVlrImovelAlugado = "SELECT SUM(valor_negocio) as vlrAluguel FROM movimentacao_imovel WHERE status = 'Aluguel'";
+$queryVlrImovelAlugado = mysqli_query($conn, $sqlVlrImovelAlugado);
+$dadosVlrImovelAlugado = mysqli_fetch_array($queryVlrImovelAlugado);
+$vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -118,7 +124,8 @@ $qtdeImovelAlugado = $dadosQtdeImovelAlugado['qtde'];
                     <div class="row">
                         <div class="col-6 collapse-brand">
                             <a href="./index.html">
-                                <img src="./assets/img/brand/blue.png">
+                                <!-- <img src="./assets/img/brand/blue.png"> -->
+                                <img src="./assets/img/brand/logo.png">
                             </a>
                         </div>
                         <div class="col-6 collapse-close">
@@ -145,8 +152,9 @@ $qtdeImovelAlugado = $dadosQtdeImovelAlugado['qtde'];
                 </form>
                 <!-- Navigation -->
                 <ul class="navbar-nav">
-                    <li class="nav-item  class=" active" ">
-          <a class=" nav-link active " href=" ./index.html"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+                    <li class="nav-item active">
+                        <a class=" nav-link active " href=" ./index.html"> <i class="ni ni-tv-2 text-primary"></i>
+                            Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
@@ -321,6 +329,7 @@ $qtdeImovelAlugado = $dadosQtdeImovelAlugado['qtde'];
                                         $qtdeImovel = 0;
                                         $qtdeVenda = 0;
 
+                                        // Percorre os dados da tabela movimentacao_imovel e imovel para calcular o lucro
                                         while (($dadosVlrImovelVendido = mysqli_fetch_array($queryVlrImovelVendido)) && ($dadosVlrImovelVendido2 = mysqli_fetch_array($queryVlrImovelVendido2))) {
                                             $valorVenda = $dadosVlrImovelVendido['valor_negocio'];
                                             $valorImovel = $dadosVlrImovelVendido2['valor'];
@@ -328,21 +337,20 @@ $qtdeImovelAlugado = $dadosQtdeImovelAlugado['qtde'];
                                             $qtdeImovel = $qtdeImovel + $valorImovel;
                                             $qtdeVenda = $qtdeVenda + $valorVenda;
 
-                                            $total = $qtdeVenda - $qtdeImovel;
+                                            $totalLucroV = $qtdeVenda - $qtdeImovel;
                                         }
 
-
-                                        if ($total <= 0) {
+                                        if ($totalLucroV <= 0) {
                                             ?>
                                             <span class="text-danger mr-2">
                                                 <i class="fas fa-arrow-down"></i>
-                                                <?php echo number_format($total, 2, ',', '.'); ?>
+                                                <?php echo "R$ " . number_format($totalLucroV, 2, ',', '.'); ?>
                                             </span>
                                             <span class="text-nowrap">Lucro</span>
                                         <?php } else { ?>
                                             <span class="text-success mr-2">
                                                 <i class="fas fa-arrow-up"></i>
-                                                <?php echo number_format($total, 2, ',', '.'); ?>
+                                                <?php echo "R$ " . number_format($totalLucroV, 2, ',', '.'); ?>
                                             </span>
                                             <span class="text-nowrap">Lucro</span>
 
@@ -367,10 +375,17 @@ $qtdeImovelAlugado = $dadosQtdeImovelAlugado['qtde'];
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
-                                        <span class="text-nowrap">Since yesterday</span>
-                                    </p> -->
+                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                        <span class="text-success mr-2">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <?php
+                                            $totalLucroA = $vlrImovelAlugado * 0.15;
+
+                                            echo "R$ " . number_format($totalLucroA, 2, ',', '.');
+                                            ?>
+                                        </span>
+                                        <span class="text-nowrap">/ mês</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -379,8 +394,14 @@ $qtdeImovelAlugado = $dadosQtdeImovelAlugado['qtde'];
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                                            <span class="h2 font-weight-bold mb-0">49,65%</span>
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Lucro Bruto</h5>
+                                            <span class="h2 font-weight-bold mb-0">
+                                                <?php
+                                                $totalBruto = $totalLucroA + $totalLucroV;
+
+                                                echo number_format($totalBruto, 2, ',', '.');
+                                                ?>
+                                            </span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -389,8 +410,19 @@ $qtdeImovelAlugado = $dadosQtdeImovelAlugado['qtde'];
                                         </div>
                                     </div>
                                     <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                                        <span class="text-nowrap">Since last month</span>
+                                        <?php
+                                        if ($totalBruto <= 0) {
+                                            ?>
+                                            <span class="text-danger mr-2">
+                                                <i class="fas fa-arrow-down"></i>
+                                                <span class="text-nowrap"> Saldo Negativo</span>
+                                            </span>
+                                        <?php } else { ?>
+                                            <span class="text-success mr-2">
+                                                <i class="fas fa-arrow-up"></i>
+                                                <span class="text-nowrap"> Saldo Positivo</span>
+                                            </span>
+                                        <?php } ?>
                                     </p>
                                 </div>
                             </div>
