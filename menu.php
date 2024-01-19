@@ -39,10 +39,10 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Imobiliária Casa Bela</title>
+    <title>Painel Administrativo - Imobiliária Casa Bela</title>
     <!-- Favicon -->
     <!-- <link href="./assets/img/brand/favicon.png" rel="icon" type="image/png"> -->
-    <link href="./assets/img/brand/fav.ico" rel="icon" type="image/png">
+    <link href="./assets/img/brand/fav.png" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
@@ -63,7 +63,7 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
             <!-- Brand -->
             <a class="navbar-brand pt-0" href="./index.php">
                 <!-- <img src="./assets/img/brand/blue.png" class="navbar-brand-img" alt="..."> -->
-                <img src="./assets/img/brand/logo.png" class="navbar-brand-img" alt="...">
+                <img src="./assets/img/brand/logo_blue.png" class="navbar-brand-img" alt="...">
             </a>
             <!-- User -->
             <ul class="nav align-items-center d-md-none">
@@ -125,7 +125,7 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
                         <div class="col-6 collapse-brand">
                             <a href="./index.php">
                                 <!-- <img src="./assets/img/brand/blue.png"> -->
-                                <img src="./assets/img/brand/logo.png">
+                                <img src="./assets/img/brand/logo_blue.png">
                             </a>
                         </div>
                         <div class="col-6 collapse-close">
@@ -178,7 +178,7 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./examples/login.html">
+                        <a class="nav-link" href="./examples/login.php">
                             <i class="ni ni-key-25 text-info"></i> Login
                         </a>
                     </li>
