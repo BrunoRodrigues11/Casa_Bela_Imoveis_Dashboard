@@ -19,12 +19,13 @@ while ($row = mysqli_fetch_array($query)) {
     $dataFinal = explode("-", $dataFormat); // explode() => Divide a data em partes
     $dataArray = $dataFinal[2] . "/" . $dataFinal[1] . "/" . $dataFinal[0];
 
-    $datas = '"' . $dataArray . '",' . '"' . $dataArray . '",';
-    $valores = $valores . '"' . $row['valor_negocio'] . '",';
-
-    $datas = trim($datas); # trim() -> Tira os espaços da variável
-    $valores = trim($valores);
+    $datas .= '"' . $dataArray . '",';
+    $valores .= '"' . $row['valor_negocio'] . '",';
 }
+
+// Removendo a última vírgula de cada string, se existir
+$datas = rtrim($datas, ',');
+$valores = rtrim($valores, ',');
 
 ?>
 
