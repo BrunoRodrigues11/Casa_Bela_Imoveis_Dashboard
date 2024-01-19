@@ -35,7 +35,8 @@ $qtdeImovelAlugado = $dadosQtdeImovelAlugado['qtde'];
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Imobiliária Casa Bela</title>
     <!-- Favicon -->
-    <link href="./assets/img/brand/favicon.png" rel="icon" type="image/png">
+    <!-- <link href="./assets/img/brand/favicon.png" rel="icon" type="image/png"> -->
+    <link href="./assets/img/brand/fav.ico" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
@@ -55,7 +56,8 @@ $qtdeImovelAlugado = $dadosQtdeImovelAlugado['qtde'];
             </button>
             <!-- Brand -->
             <a class="navbar-brand pt-0" href="./index.html">
-                <img src="./assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+                <!-- <img src="./assets/img/brand/blue.png" class="navbar-brand-img" alt="..."> -->
+                <img src="./assets/img/brand/logo.png" class="navbar-brand-img" alt="...">
             </a>
             <!-- User -->
             <ul class="nav align-items-center d-md-none">
