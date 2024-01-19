@@ -7,6 +7,25 @@ $queryQtdeImovel = mysqli_query($conn, $sqlQtdeImovel);
 $dadosQtdeImovel = mysqli_fetch_array($queryQtdeImovel);
 $qtdeImovel = $dadosQtdeImovel['qtde'];
 
+// Indicador de quantidade de imóveis vendidos
+$sqlQtdeImovelVendido = "SELECT COUNT(id) as qtde FROM movimentacao_imovel WHERE status = 'Venda'";
+$queryQtdeImovelVendido = mysqli_query($conn, $sqlQtdeImovelVendido);
+$dadosQtdeImovelVendido = mysqli_fetch_array($queryQtdeImovelVendido);
+$qtdeImovelVendido = $dadosQtdeImovelVendido['qtde'];
+
+// Indicador lucro das vendas
+$sqlVlrImovelVendido = "SELECT * FROM movimentacao_imovel WHERE status = 'Venda'";
+$queryVlrImovelVendido = mysqli_query($conn, $sqlVlrImovelVendido);
+
+$sqlVlrImovelVendido2 = "SELECT * FROM imovel WHERE status = 'Venda'";
+$queryVlrImovelVendido2 = mysqli_query($conn, $sqlVlrImovelVendido2);
+
+// Indicador de quantidade de imóveis alugados
+$sqlQtdeImovelAlugado = "SELECT COUNT(id) as qtde FROM movimentacao_imovel WHERE status = 'Aluguel'";
+$queryQtdeImovelAlugado = mysqli_query($conn, $sqlQtdeImovelAlugado);
+$dadosQtdeImovelAlugado = mysqli_fetch_array($queryQtdeImovelAlugado);
+$qtdeImovelAlugado = $dadosQtdeImovelAlugado['qtde'];
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -272,10 +291,10 @@ $qtdeImovel = $dadosQtdeImovel['qtde'];
                                             </div>
                                         </div>
                                     </div>
-                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                    <!-- <p class="mt-3 mb-0 text-muted text-sm">
                                         <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 300%</span>
                                         <span class="text-nowrap">Since yesterday</span>
-                                    </p>
+                                    </p> -->
                                 </div>
                             </div>
                         </div>
@@ -284,18 +303,48 @@ $qtdeImovel = $dadosQtdeImovel['qtde'];
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                                            <span class="h2 font-weight-bold mb-0">2,356</span>
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Imóveis Vendidos</h5>
+                                            <span class="h2 font-weight-bold mb-0">
+                                                <?php echo $qtdeImovelVendido ?>
+                                            </span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                                <i class="fas fa-chart-pie"></i>
+                                                <i class="ni ni-bag-17"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
-                                        <span class="text-nowrap">Since last week</span>
+                                        <?php
+                                        $qtdeImovel = 0;
+                                        $qtdeVenda = 0;
+
+                                        while (($dadosVlrImovelVendido = mysqli_fetch_array($queryVlrImovelVendido)) && ($dadosVlrImovelVendido2 = mysqli_fetch_array($queryVlrImovelVendido2))) {
+                                            $valorVenda = $dadosVlrImovelVendido['valor_negocio'];
+                                            $valorImovel = $dadosVlrImovelVendido2['valor'];
+
+                                            $qtdeImovel = $qtdeImovel + $valorImovel;
+                                            $qtdeVenda = $qtdeVenda + $valorVenda;
+
+                                            $total = $qtdeVenda - $qtdeImovel;
+                                        }
+
+
+                                        if ($total <= 0) {
+                                            ?>
+                                            <span class="text-danger mr-2">
+                                                <i class="fas fa-arrow-down"></i>
+                                                <?php echo number_format($total, 2, ',', '.'); ?>
+                                            </span>
+                                            <span class="text-nowrap">Lucro</span>
+                                        <?php } else { ?>
+                                            <span class="text-success mr-2">
+                                                <i class="fas fa-arrow-up"></i>
+                                                <?php echo number_format($total, 2, ',', '.'); ?>
+                                            </span>
+                                            <span class="text-nowrap">Lucro</span>
+
+                                        <?php } ?>
                                     </p>
                                 </div>
                             </div>
@@ -305,8 +354,10 @@ $qtdeImovel = $dadosQtdeImovel['qtde'];
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                                            <span class="h2 font-weight-bold mb-0">924</span>
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Imóveis Alugados</h5>
+                                            <span class="h2 font-weight-bold mb-0">
+                                                <?php echo $qtdeImovelAlugado ?>
+                                            </span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -314,10 +365,10 @@ $qtdeImovel = $dadosQtdeImovel['qtde'];
                                             </div>
                                         </div>
                                     </div>
-                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                    <!-- <p class="mt-3 mb-0 text-muted text-sm">
                                         <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
                                         <span class="text-nowrap">Since yesterday</span>
-                                    </p>
+                                    </p> -->
                                 </div>
                             </div>
                         </div>
