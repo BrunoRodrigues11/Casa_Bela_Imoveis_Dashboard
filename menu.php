@@ -61,7 +61,7 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Brand -->
-            <a class="navbar-brand pt-0" href="./index.html">
+            <a class="navbar-brand pt-0" href="./index.php">
                 <!-- <img src="./assets/img/brand/blue.png" class="navbar-brand-img" alt="..."> -->
                 <img src="./assets/img/brand/logo.png" class="navbar-brand-img" alt="...">
             </a>
@@ -123,7 +123,7 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
                 <div class="navbar-collapse-header d-md-none">
                     <div class="row">
                         <div class="col-6 collapse-brand">
-                            <a href="./index.html">
+                            <a href="./index.php">
                                 <!-- <img src="./assets/img/brand/blue.png"> -->
                                 <img src="./assets/img/brand/logo.png">
                             </a>
@@ -153,7 +153,7 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
                 <!-- Navigation -->
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class=" nav-link active " href=" ./index.html"> <i class="ni ni-tv-2 text-primary"></i>
+                        <a class=" nav-link active " href=" ./index.php"> <i class="ni ni-tv-2 text-primary"></i>
                             Dashboard
                         </a>
                     </li>
@@ -222,7 +222,7 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
         <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
             <div class="container-fluid">
                 <!-- Brand -->
-                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.html">Dashboard</a>
+                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.php">Dashboard</a>
                 <!-- Form -->
                 <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
                     <div class="form-group mb-0">
