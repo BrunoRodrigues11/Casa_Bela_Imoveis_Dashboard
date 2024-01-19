@@ -13,7 +13,13 @@ $datas = "";
 $valores = "";
 
 while ($row = mysqli_fetch_array($query)) {
-    $datas = $datas . '"' . $row['data'] . '",';
+    $dataFormat = $row['data'];
+
+    // Formatando a data para o padrão brasileiro
+    $dataFinal = explode("-", $dataFormat); // explode() => Divide a data em partes
+    $dataArray = $dataFinal[2] . "/" . $dataFinal[1] . "/" . $dataFinal[0];
+
+    $datas = '"' . $dataArray . '",' . '"' . $dataArray . '",';
     $valores = $valores . '"' . $row['valor_negocio'] . '",';
 
     $datas = trim($datas); # trim() -> Tira os espaços da variável
