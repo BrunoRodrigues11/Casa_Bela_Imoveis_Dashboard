@@ -76,23 +76,29 @@
         <div class="col-lg-5 col-md-7">
           <div class="card bg-secondary shadow border-0">
             <div class="card-header bg-transparent">
-              <!-- <div class="text-muted text-center mt-2 mb-3">
-                  <small>Sign in with</small>
-                </div>
-                <div class="btn-wrapper text-center">
-                  <a href="#" class="btn btn-neutral btn-icon">
-                    <span class="btn-inner--icon"
-                      ><img src="assets/img/icons/common/github.svg"
-                    /></span>
-                    <span class="btn-inner--text">Github</span>
-                  </a>
-                  <a href="#" class="btn btn-neutral btn-icon">
-                    <span class="btn-inner--icon"
-                      ><img src="assets/img/icons/common/google.svg"
-                    /></span>
-                    <span class="btn-inner--text">Google</span>
-                  </a>
-                </div> -->
+              <?php
+              if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+                switch ($id) {
+                  case 1: ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <span class="alert-text"><strong>Erro!</strong> Senha incorreta.</span>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <?php break;
+                  case 2: ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <span class="alert-text"><strong>Erro!</strong> Usuário incorreto ou inexistente.</span>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <?php break;
+                }
+              }
+              ?>
               <img src="assets/img/brand/logo_blue.png" class="navbar-brand-img img-fluid" alt="..." />
             </div>
             <div class="card-body px-lg-5 py-lg-5">

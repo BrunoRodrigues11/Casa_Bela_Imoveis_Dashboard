@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+}
+
+$userLogged = $_SESSION['usuario'];
+
 include("connection/connection.php");
 
 // Indicador de quantidade total de imóveis cadastrados
@@ -244,7 +251,9 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
                                     <img alt="Image placeholder" src="./assets/img/theme/team-4-800x800.jpg">
                                 </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
-                                    <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                                    <span class="mb-0 text-sm  font-weight-bold">
+                                        <?php echo $userLogged ?>
+                                    </span>
                                 </div>
                             </div>
                         </a>
@@ -301,10 +310,10 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 300%</span>
+                                    <p class="mt-3 mb-0 text-muted text-sm text-white">
+                                        <span class="text-white" mr-2"><i class="fa fa-arrow-up"></i> 300%</span>
                                         <span class="text-nowrap">Since yesterday</span>
-                                    </p> -->
+                                    </p>
                                 </div>
                             </div>
                         </div>
