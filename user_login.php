@@ -19,7 +19,6 @@ $senhaVerificada = md5($senha);
 // Verifica se existe o usuário no banco de dados
 $row = mysqli_affected_rows($conn);
 if ($row == 1) {
-
     // Verifica se a senha digitada é igual a senha criptografada no banco de dados
     if ($senhabd == $senhaVerificada) {
         // Cria uma sessão para armazenar o usuário

@@ -28,8 +28,8 @@ $email = $_POST['email'];
                     </div>
                     <div class="container" style="margin-top:10px">
                         <?php
-                        $sql = "INSERT INTO usuarios (nome,nivel_acesso,usuario,senha,email) 
-                                VALUES ('$nome','$nivel_acesso','$usuario',md5('$senha'),'$email')";
+                        $sql = "INSERT INTO usuarios (nome,nivel_acesso,usuario,senha,email,status) 
+                                VALUES ('$nome','$nivel_acesso','$usuario',md5('$senha'),'$email','Ativo')";
                         $query = mysqli_query($conn, $sql);
                         $teste = mysqli_affected_rows($conn);
                         if ($teste == 1) {

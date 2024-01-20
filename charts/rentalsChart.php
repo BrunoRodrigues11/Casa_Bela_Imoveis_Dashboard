@@ -3,7 +3,7 @@ include("connection/connection.php");
 
 $sql = "SELECT SUM(valor_negocio) as valor_negocio, data
         FROM movimentacao_imovel 
-        WHERE status = 'Venda ' 
+        WHERE status = 'Aluguel ' 
         GROUP BY data 
         ORDER BY data ASC";
 $query = mysqli_query($conn, $sql);
@@ -41,13 +41,13 @@ $valores = rtrim($valores, ',');
 
 <body>
     <div class="container">
-        <canvas id="salesChart"></canvas>
+        <canvas id="rentalsChart"></canvas>
     </div>
     <!-- GRAFICO DE LINHAS -->
     <script type="text/javascript">
-        var ctx = document.getElementById('salesChart').getContext('2d');
-        var myLineChart = new Chart(ctx, {
-            type: 'line',
+        var ctx = document.getElementById('rentalsChart').getContext('2d');
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
             data: {
                 labels: [<?php echo $datas; ?>],
                 datasets: [
@@ -60,17 +60,19 @@ $valores = rtrim($valores, ',');
                     {
                         label: 'Valores',
                         data: [<?php echo $valores; ?>],
-                        backgroundColor: 'rgba(0,255,255)',
-                        borderColor: 'rgba(0,255,255)',
+                        backgroundColor: '#2dce89',
+                        borderColor: '#2dce89',
                         borderWidth: 3
                     }
                 ]
             },
             options: {
+                maintainAspectRatio: false,
+                aspectRatio: 0.85,
                 legend: {
                     display: false,
                     labels: {
-                        fontColor: "white",
+                        fontColor: "black",
                         fontSize: 18
                     }
                 },
@@ -81,14 +83,14 @@ $valores = rtrim($valores, ',');
                             scaleLabel: {
                                 display: true,
                                 labelString: 'Datas',
-                                fontColor: '#ffffff',
+                                fontColor: '#000',
                                 fontSize: 12
                             },
                             gridLines: {
                                 display: false
                             },
                             ticks: {
-                                fontColor: "white",
+                                fontColor: "black",
                                 fontSize: 12
                             }
                         }
@@ -99,15 +101,15 @@ $valores = rtrim($valores, ',');
                             scaleLabel: {
                                 display: true,
                                 labelString: 'Valores',
-                                fontColor: '#ffffff',
+                                fontColor: '#000',
                                 fontSize: 12
                             },
                             gridLines: {
                                 display: false
                             },
                             ticks: {
-                                min: 1000,
-                                fontColor: "white",
+                                min: 0,
+                                fontColor: "black",
                                 fontSize: 12
                             }
                         }
