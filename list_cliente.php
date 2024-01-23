@@ -3,7 +3,7 @@ include("menu.php");
 include("header.php");
 include("connection/connection.php");
 
-$sql = "SELECT * FROM imovel";
+$sql = "SELECT * FROM cliente";
 $query = mysqli_query($conn, $sql);
 
 ?>
@@ -23,14 +23,14 @@ $query = mysqli_query($conn, $sql);
                     <div class="card-header border-1">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 class="mb-0">Lista de Imóveis</h3>
+                                <h3 class="mb-0">Lista de Clientes</h3>
                             </div>
                             <div class="col-md-6 text-right">
-                                <a href="cad_form_imovel.php" role="button" class="btn btn-success">
+                                <a href="cad_form_cliente.php" role="button" class="btn btn-success">
                                     <span class="btn-inner--icon">
                                         <i class="ni ni-fat-add"></i>
                                     </span>
-                                    <span class="btn-inner--text">Novo Imóvel</span>
+                                    <span class="btn-inner--text">Novo Cliente</span>
                                 </a>
                             </div>
                         </div>
@@ -52,50 +52,35 @@ $query = mysqli_query($conn, $sql);
                                 <tbody class="list">
                                     <?php while ($dados = mysqli_fetch_array($query)) {
                                         $id = $dados['id'];
-                                        $codigo = $dados['codigo'];
-                                        $valor = $dados['valor'];
+                                        $nome = $dados['nome'];
+                                        $sobrenome = $dados['sobrenome'];
+                                        $cpf = $dados['cpf'];
                                         $cep = $dados['cep'];
-                                        $bairro = $dados['bairro'];
-                                        $status = $dados['status'];
+                                        $email = $dados['email'];
+                                        // $status = $dados['status'];
                                         ?>
                                         <tr>
                                             <td>
                                                 <?php echo $id; ?>
                                             </td>
                                             <td>
-                                                <?php echo $codigo; ?>
+                                                <?php echo $nome; ?>
                                             </td>
                                             <td>
-                                                <?php echo number_format($valor, 2, ',', '.'); ?>
+                                                <?php echo $sobrenome ?>
+                                            </td>
+                                            <td>
+                                                <?php echo substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, 9, 2); ?>
                                             </td>
                                             <td>
                                                 <?php echo substr($cep, 0, 5) . '-' . substr($cep, 5); ?>
                                             </td>
                                             <td>
-                                                <?php echo $bairro; ?>
+                                                <?php echo $email; ?>
                                             </td>
+
                                             <td>
-                                                <span class="badge badge-pill <?php
-                                                if ($status == 'Ativo') {
-                                                    echo 'badge-success';
-                                                } elseif ($status == 'Aluguel ') {
-                                                    echo 'badge-primary';
-                                                } elseif ($status == 'Venda ') {
-                                                    echo 'badge-warning';
-                                                }
-                                                ?>">
-                                                    <?php echo $status; ?>
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <a href="cad_form_moviment_imovel.php?id=<?php echo $id; ?>" role="button"
-                                                    class="btn btn-primary">
-                                                    <span class="btn-inner--icon">
-                                                        <i class="ni ni-paper-diploma"></i>
-                                                    </span>
-                                                    <span class="btn-inner--text"></span>
-                                                </a>
-                                                <a href="edit_form_imovel.php?id=<?php echo $id; ?>" role="button"
+                                                <a href="edit_form_cliente.php?id=<?php echo $id; ?>" role="button"
                                                     class="btn btn-warning">
                                                     <span class="btn-inner--icon">
                                                         <i class="ni ni-tag"></i>

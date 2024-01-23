@@ -43,7 +43,6 @@ include("header.php");
                 </div>
             </div>
         </div>
-
         <!-- Footer -->
         <?php include("footer.php"); ?>
     </div>

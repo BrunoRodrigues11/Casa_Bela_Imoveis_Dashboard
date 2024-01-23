@@ -236,7 +236,6 @@ $queryCategoria = mysqli_query($conn, $sqlCategoria);
                 </div>
             </div>
         </div>
-
         <!-- Footer -->
         <?php include("footer.php"); ?>
     </div>

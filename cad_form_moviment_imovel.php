@@ -115,24 +115,6 @@ $queryModalidade = mysqli_query($conn, $sqlModalidade);
         <?php include("footer.php"); ?>
     </div>
     <?php include("rodape.php"); ?>
-    <script language="javascript">
-        var max = 6;
-        (function ($) {
-            AddTableRow = function () {
-                var qtde = $("#table_imgs tbody tr").length;
-                if (qtde < max) {
-                    var newRow = $("<tr>");
-                    var cols = "";
-
-                    cols += '<td><div class="form-group"><input type="file" class="form-control-file" id="arquivo" name="foto[' + qtde + ']"></div></td>';
-
-                    newRow.append(cols);
-                    $("#table_imgs").append(newRow);
-                    return false;
-                }
-            };
-        })(jQuery);
-    </script>
 </body>
 
 </html>

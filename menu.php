@@ -143,8 +143,8 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
                 </div>
                 <!-- Navigation -->
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class=" nav-link active " href=" ./index.php"> <i class="ni ni-tv-2 text-primary"></i>
+                    <li class="nav-item">
+                        <a class=" nav-link active" href=" ./index.php"> <i class="ni ni-tv-2 text-primary"></i>
                             Dashboard
                         </a>
                     </li>
@@ -164,48 +164,23 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="list_categoria.php">
-                            <i class="ni ni-bullet-list-67 text-red"></i> Categorias
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="list_tramitacao.php">
                             <i class="ni ni-key-25 text-info"></i> Tramitações
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link " href="list_categoria.php">
+                            <i class="ni ni-bullet-list-67 text-red"></i> Categorias
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="list_pagamento.php">
-                            <i class="ni ni-circle-08 text-pink"></i> Formas de Pagamento
+                            <i class="ni ni-bullet-list-67 text-red"></i> Formas de Pagamento
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="list_modalidade.php">
-                            <i class="ni ni-circle-08 text-pink"></i> Modalidades
-                        </a>
-                    </li>
-                </ul>
-                <!-- Divider -->
-                <hr class="my-3">
-                <!-- Heading -->
-                <h6 class="navbar-heading text-muted">Documentation</h6>
-                <!-- Navigation -->
-                <ul class="navbar-nav mb-md-3">
-                    <li class="nav-item">
-                        <a class="nav-link"
-                            href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
-                            <i class="ni ni-spaceship"></i> Getting started
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"
-                            href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html">
-                            <i class="ni ni-palette"></i> Foundation
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"
-                            href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html">
-                            <i class="ni ni-ui-04"></i> Components
+                            <i class="ni ni-bullet-list-67 text-red"></i> Modalidades
                         </a>
                     </li>
                 </ul>
@@ -226,7 +201,7 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
                             aria-expanded="false">
                             <div class="media align-items-center">
                                 <span class="avatar avatar-sm rounded-circle">
-                                    <img alt="Image placeholder" src="./assets/img/theme/team-4-800x800.jpg">
+                                    <img alt="Image placeholder" src="./assets/img/profile/cr7_profile.png">
                                 </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
                                     <span class="mb-0 text-sm  font-weight-bold">
@@ -262,7 +237,7 @@ $vlrImovelAlugado = $dadosVlrImovelAlugado['vlrAluguel'];
             </div>
         </nav>
         <!-- End Navbar -->
-
+        <?php include("rodape.php"); ?>
 </body>
 
 </html>

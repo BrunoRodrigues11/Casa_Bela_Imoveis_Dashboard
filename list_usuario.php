@@ -111,7 +111,6 @@ $query = mysqli_query($conn, $sql);
                 </div>
             </div>
         </div>
-
         <!-- Footer -->
         <?php include("footer.php"); ?>
     </div>
