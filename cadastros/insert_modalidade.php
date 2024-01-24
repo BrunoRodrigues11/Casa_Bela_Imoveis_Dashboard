@@ -1,5 +1,7 @@
 <?php
+include("assets.php");
 include("../menu.php");
+include("../header.php");
 include("../connection/connection.php");
 
 $modalidade = $_GET['tipo'];
